@@ -5,7 +5,6 @@ import GlobalStyle from './styles/GlobalStyles';
 import Header from './components/Nav';
 import CustomCursor from './components/Cursor';
 import IndexPage from './pages/IndexPage';
-import ArchivePage from './pages/ArchivePage';
 import Footer from './components/Footer';
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
         <Header toggleTheme={toggleTheme} theme={theme}/>
         <Routes>
           <Route path="/" element={<IndexPage />} />
-          {/* <Route path="/archive" element={<ArchivePage />} /> */}
         </Routes>
         <Footer/>
       </Theme>

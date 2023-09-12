@@ -1,5 +1,4 @@
 import React from 'react'
-// animations
 import {motion} from "framer-motion"
 import { Container, Div, Hide} from "../styles/styles";
 import { slideAnim, staggerAnim } from "../animation"
