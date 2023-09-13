@@ -60,7 +60,7 @@ function Projects() {
           <Featured 
             image={portfolio} 
             title="My audio-visual promo website"
-            text="https://confident-jang-29f63e.netlify.app/"
+            text="http://kipol-site.surge.sh/"
             link="https://gitlab.com/llirikk/kipol_site"
             technologies={technologies2} />
           <Featured 
