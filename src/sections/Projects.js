@@ -10,6 +10,7 @@ import museum from "../assets/images/museum.jpg"
 import amberbitter from "../assets/images/amberbitter.jpg"
 import dao from "../assets/images/eb.jpg"
 import netevia from "../assets/images/netevia.jpg"
+import langco from "../assets/images/langco.jpg"
 
 const technologies1 = [
   "JavaScript",
@@ -46,11 +47,24 @@ const neteviaTech = [
   "TailwindCSS"
 ]
 
+const langcoTech = [
+  "JavaScript",
+  "NextJS",
+  "OpenAI API",
+  "SCSS"
+]
+
 function Projects() {
   return (
       <StyledProjects id="projects">
         <Header><span>02.</span> PROJECTS</Header>
         <FeaturedContainer>
+          <Featured 
+            image={langco} 
+            title="Integration with OpenAI API to create language school exercises"
+            text="https://lang-coach.com/ai"
+            link=""
+            technologies={langcoTech} />
           <Featured 
             image={shvoren} 
             title="Viktoria Shvoren 3d gallery"
