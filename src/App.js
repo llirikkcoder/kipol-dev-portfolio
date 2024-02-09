@@ -8,7 +8,7 @@ import IndexPage from './pages/IndexPage';
 import Footer from './components/Footer';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   function toggleTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light');

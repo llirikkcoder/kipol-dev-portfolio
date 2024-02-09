@@ -11,6 +11,8 @@ import amberbitter from "../assets/images/amberbitter.jpg"
 import dao from "../assets/images/eb.jpg"
 import netevia from "../assets/images/netevia.jpg"
 import langco from "../assets/images/langco.jpg"
+import kk_clone from "../assets/images/kk_clone.jpg"
+import idmed from "../assets/images/idmed.jpg"
 
 const technologies1 = [
   "JavaScript",
@@ -54,11 +56,45 @@ const langcoTech = [
   "SCSS"
 ]
 
+const kkClone = [
+  "JS",
+  "NextJS",
+  "OpenAI API",
+  "TailwindCSS",
+  "Supabase",
+  "RAG",
+]
+
+const idMedTech = [
+  "JS",
+  "NextJS",
+  "TailwindCSS",
+  "Sanity",
+]
+
 function Projects() {
   return (
       <StyledProjects id="projects">
         <Header><span>02.</span> PROJECTS</Header>
         <FeaturedContainer>
+          <Featured 
+            image={netevia} 
+            title="Netevia - bank web application"
+            text="https://netevia.surge.sh/"
+            link=""
+            technologies={neteviaTech} />
+          <Featured 
+            image={kk_clone} 
+            title="AI with RAG-technologie web application"
+            text="https://kk-clone-chatgpt-your-files.vercel.app/"
+            link="https://github.com/llirikkcoder/kk-clone-chatgpt-your-files"
+            technologies={kkClone} />
+          <Featured 
+            image={idmed} 
+            title="Website of the personal medicine clinic Idmed"
+            text="https://www.idmed-clinic.ru/"
+            link="https://gitlab.com/llirikk/stablo-blog-v2"
+            technologies={idMedTech} />
           <Featured 
             image={langco} 
             title="Integration with OpenAI API to create language school exercises"
@@ -95,13 +131,8 @@ function Projects() {
             text="https://flourishing-dodol-d12c3b.netlify.app/"
             link="https://github.com/llirikkcoder/html_dao"
             technologies={daoTech} />
-          <Featured 
-            image={netevia} 
-            title="Netevia - bank web application"
-            text="https://netevia.surge.sh/"
-            link=""
-            technologies={neteviaTech} />
-        </FeaturedContainer >
+          
+        </FeaturedContainer>
         <Archive />
       </StyledProjects>
   )
