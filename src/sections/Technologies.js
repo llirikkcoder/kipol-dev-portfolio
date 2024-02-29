@@ -24,9 +24,9 @@ const backend = {
 const frontend = {
   title: "FRONT END",
   technologies: [
-    "HTML5",
-    "CSS3",
-    "JavaScript",
+    "HTML",
+    "CSS",
+    "JavaScript/TypeScript",
     "React/Redux",
     "NextJS"
   ]

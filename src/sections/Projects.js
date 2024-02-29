@@ -16,52 +16,49 @@ import idmed from "../assets/images/idmed.jpg"
 import fairyland from "../assets/images/fairyland.jpg"
 
 const technologies1 = [
-  "JavaScript",
+  "JS",
   "React",
   "Threejs",
   "Gsap"
 ]
 
 const technologies2 = [
-  "JavaScript",
+  "JS",
   "Threejs",
   "Physics",
   "React",
 ]
 
 const technologies3 = [
-  "JavaScript",
+  "JS",
   "React",
-  "HTML/CSS",
   "React-motion"
 ]
 
 const daoTech = [
-  "JavaScript",
+  "JS",
   "HTML",
   "CSS",
   "Threejs"
 ]
 
 const neteviaTech = [
-  "JavaScript",
+  "JS",
   "React",
   "Redux",
-  "TailwindCSS"
+  "Tailwind"
 ]
 
 const langcoTech = [
-  "JavaScript",
+  "JS",
   "NextJS",
-  "OpenAI API",
+  "OpenAI",
   "SCSS"
 ]
 
 const kkClone = [
-  "JS",
   "NextJS",
-  "OpenAI API",
-  "TailwindCSS",
+  "OpenAI",
   "Supabase",
   "RAG",
 ]
@@ -69,7 +66,7 @@ const kkClone = [
 const idMedTech = [
   "JS",
   "NextJS",
-  "TailwindCSS",
+  "Tailwind",
   "Sanity",
 ]
 

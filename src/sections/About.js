@@ -26,9 +26,9 @@ const About = () => {
     </Div>
     )
 }
+// padding: 0rem 1rem;
 
 const StyledAbout = styled(Container)`
-    padding: 0rem 2rem;
     padding-top: 5rem;
     max-width: 1080px;
     min-height: 50vh;

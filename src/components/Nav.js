@@ -72,6 +72,7 @@ const NavLinks = styled(motion.ul)`
   backdrop-filter: blur(10px);
   background-color: var(--color-nav);
   border: 2px solid var(--color-border);
+  border-radius: 10px;
   padding: 1rem 2rem;
   @media (max-width: 700px){
     transform: translateX(100%) !important;

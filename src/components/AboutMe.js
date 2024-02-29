@@ -18,7 +18,7 @@ function AboutMe() {
           </Social>
           <Social>
             <Circle/>
-            <li>Javascript/Typescript</li>
+            <li>JS/TS</li>
           </Social>
           <Social>
             <Circle/>
@@ -37,7 +37,9 @@ display: flex;
 align-items: flex-start;
 justify-content: flex-start;
 flex: 3;
+flex-wrap: wrap;
 margin-right: 2rem;
+max-width: 90vw;
 p span, .bold{
   font-family: var(--font-sans);
   color: var(--color-header);

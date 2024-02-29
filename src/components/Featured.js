@@ -32,7 +32,7 @@ function Featured({title, image, text, link, technologies}) {
                <li key={technology}>{technology}</li>
              ))}
              </Technologies>
-             <a href={link} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faCode}></FontAwesomeIcon></a>
+             <CodeIcon href={link} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faCode}></FontAwesomeIcon></CodeIcon>
            </More>
          </About>
       </FeaturedProject>
@@ -41,8 +41,14 @@ function Featured({title, image, text, link, technologies}) {
 
 const FeaturedProject = styled(motion.div)`
   margin-bottom: 4rem;
+  
   @media (min-width: 850px) {
     display: flex;
+  }
+  @media (max-width: 850px) {
+    h3{
+      padding: 0 1rem;
+    }
   }
 `;
 
@@ -88,6 +94,12 @@ const Img = styled.img`
   height:100%;
   object-fit: cover;
   overflow: hidden;
+`
+
+const CodeIcon = styled.a`
+  @media (max-width: 850px) {
+    transform: translate(5px, 0);
+  }
 `
 
 export default Featured;

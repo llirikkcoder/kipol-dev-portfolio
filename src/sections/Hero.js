@@ -18,10 +18,12 @@ const HeroSection = () => {
                         <motion.h2 variants={slideAnim.up}><span>Kirill Pavliashik</span></motion.h2>
                     </Hide>
                 </motion.div>
-                <Hide>
-                    <motion.p variants={slideAnim.up}> 
-                    I build web-based solutions that prioritize functionality and user experience. I enjoy turning ideas into reality by creating practical and visually appealing web applications.</motion.p>
-                </Hide>     
+                <WidthContainer>
+                    <Hide>
+                        <motion.p variants={slideAnim.up}> 
+                        I build web-based solutions that prioritize functionality and user experience. I enjoy turning ideas into reality by creating practical and visually appealing web applications.</motion.p>
+                    </Hide>     
+                </WidthContainer>
                 <ButtonContainer>
                     <Hide>
                         <a href="https://github.com/llirikkcoder" target="_blank" rel="noreferrer">
@@ -48,12 +50,20 @@ p{
         font-family: 'Poppins', sans-serif;
         font-size: 4rem;
         font-weight: 800;
+        @media (max-width: 850px) {
+            font-size: 3.5rem;
+        }
     }
   }
 `
 
 const ButtonContainer = styled.div`
 display: flex;
+`
+const WidthContainer = styled.div`
+  @media (min-width: 850px) {
+    max-width: 600px;
+  }
 `
 
 export default HeroSection;

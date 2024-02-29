@@ -8,18 +8,22 @@ background: ${props => props.theme.secondBackground};
 
 export const Container = styled(motion.div)`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  ${'' /* justify-content: center; */}
   max-width: 1080px;
   margin: auto;
   padding: 5rem 2rem;
+  @media (max-width: 850px) {
+    justify-content: center; 
+  }
 `;
 
 export const Description = styled(motion.div)`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-justify-content: center;  
+justify-content: start;  
 `;
 
 export const Hide = styled.div`
@@ -41,6 +45,7 @@ align-items: center;
 
 export const Technologies = styled.ul`
 display: flex;
+justify-content: flex-start;
 gap: 0.5rem;
 li{
   background: var(--color-second);
@@ -48,5 +53,9 @@ li{
   padding: 0.3rem 0.5rem;
   font-size: 0.7rem;
   border-radius: 20px;
+}
+@media (max-width: 850px) {
+  padding: 0 1rem;
+  transform: translate(10px, 0);
 }
 ` 
