@@ -13,6 +13,7 @@ import netevia from "../assets/images/netevia.jpg"
 import langco from "../assets/images/langco.jpg"
 import kk_clone from "../assets/images/kk_clone.jpg"
 import idmed from "../assets/images/idmed.jpg"
+import fairyland from "../assets/images/fairyland.jpg"
 
 const technologies1 = [
   "JavaScript",
@@ -72,11 +73,25 @@ const idMedTech = [
   "Sanity",
 ]
 
+const fairyLandTech = [
+  "JS",
+  "NextJS",
+  "SCSS",
+  "GraphQL",
+  "MobX",
+]
+
 function Projects() {
   return (
       <StyledProjects id="projects">
         <Header><span>02.</span> PROJECTS</Header>
         <FeaturedContainer>
+          <Featured 
+            image={fairyland} 
+            title="FairyLand - Web application for AR-game platform"
+            text="https://dev.cryptofairies.club"
+            link="https://gitlab.com/crypto-fairy/frontend"
+            technologies={fairyLandTech} />
           <Featured 
             image={netevia} 
             title="Netevia - bank web application"
