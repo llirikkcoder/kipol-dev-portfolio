@@ -54,7 +54,17 @@ export const translations = {
       title: "ПРОЕКТЫ"
     },
     technologies: {
-      title: "ТЕХНОЛОГИИ, КОТОРЫЕ Я ИСПОЛЬЗУЮ"
+      title: "ТЕХНОЛОГИИ, КОТОРЫЕ Я ИСПОЛЬЗУЮ",
+      categories: {
+        backend: "БЭКЕНД",
+        frontend: "ФРОНТЕНД",
+        database: "БАЗЫ ДАННЫХ",
+        styling: "СТИЛИЗАЦИЯ",
+        ai: "AI И АВТОМАТИЗАЦИЯ",
+        analytics: "АНАЛИТИКА И ОПТИМИЗАЦИЯ",
+        creative: "КРЕАТИВНЫЕ ТЕХНОЛОГИИ",
+        tools: "ИНСТРУМЕНТЫ И ПЛАТФОРМЫ"
+      }
     },
     contact: {
       title: "КОНТАКТЫ",
@@ -118,7 +128,17 @@ export const translations = {
       title: "PROJECTS"
     },
     technologies: {
-      title: "TECHNOLOGIES I'VE USED"
+      title: "TECHNOLOGIES I'VE USED",
+      categories: {
+        backend: "BACK END",
+        frontend: "FRONT END",
+        database: "DATABASE",
+        styling: "STYLING",
+        ai: "AI & AUTOMATION",
+        analytics: "ANALYTICS & OPTIMIZATION",
+        creative: "CREATIVE TECH",
+        tools: "TOOLS & PLATFORMS"
+      }
     },
     contact: {
       title: "CONTACT",
