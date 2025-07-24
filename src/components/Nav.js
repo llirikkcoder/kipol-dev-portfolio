@@ -28,10 +28,13 @@ const Nav = ( {toggleTheme, theme} ) => {
                 <a href="#about" onClick={() => toggleMenu(false)}><span>01.</span> ABOUT</a>
               </NavLink>
               <NavLink variants={slideAnim.down}>
-                  <a href="#projects" onClick={() => toggleMenu(false)}><span>02.</span> PROJECTS</a>
+                  <a href="#services" onClick={() => toggleMenu(false)}><span>02.</span> SERVICES</a>
               </NavLink>
               <NavLink variants={slideAnim.down}>
-                  <a href="#contact" onClick={() => toggleMenu(false)}><span>03.</span> CONTACT</a>
+                  <a href="#projects" onClick={() => toggleMenu(false)}><span>03.</span> PROJECTS</a>
+              </NavLink>
+              <NavLink variants={slideAnim.down}>
+                  <a href="#contact" onClick={() => toggleMenu(false)}><span>04.</span> CONTACT</a>
               </NavLink>
               <NavLink variants={slideAnim.down}>
                 <Label className="label">

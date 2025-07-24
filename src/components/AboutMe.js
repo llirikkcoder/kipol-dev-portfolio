@@ -7,26 +7,26 @@ function AboutMe() {
 
   return (
     <StyledAboutMe>
-      <motion.p >I am a web developer with over 4 years of experience building responsive and user friendly websites and apps. <br /> 
+      <motion.p><strong>Инженер воображения. Строю мосты между технологией, телом и чувствами.</strong><br /> 
       <br/>
-       I am fluent in React and Redux and well versed in modern web development technologies and best practices. I am a fast learner and always strive to be up to date with the latest developments in web development.</motion.p> <br />
-      <p className='bold'>Recent technologies I've used:</p>
+      Соединяю технологии, искусство и здоровье в высокоценностные продукты с человеческим лицом. Создаю интеллектуальные и сенсорные системы, которые не только решают задачи, но и вдохновляют.</motion.p> <br />
+      <p className='bold'>Ключевые направления:</p>
         <Technologies>
           <Social>
             <Circle/>
-            <li>React/Redux</li>
+            <li>AI & Автоматизация</li>
           </Social>
           <Social>
             <Circle/>
-            <li>JS/TS</li>
+            <li>Интерактивный Web</li>
           </Social>
           <Social>
             <Circle/>
-            <li>NodeJS</li>
+            <li>Art-Science проекты</li>
           </Social>
           <Social>
             <Circle/>
-            <li>SQL/Mongo</li>
+            <li>Воронки продаж</li>
           </Social>
         </Technologies>
     </StyledAboutMe>  

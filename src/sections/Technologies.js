@@ -56,7 +56,7 @@ const Technologies = () => {
   return (
     <Div>
       <StyledTechnologies animate={controls} ref={ref} variants={slideAnim.up}>
-        <Header>TECHNOLOGIES I'VE USED</Header>
+        <Header><span>04.</span> TECHNOLOGIES I'VE USED</Header>
         <Grid >
           <Techstack icon={faCode} title={backend.title} technologies={backend.technologies}/>
           <Techstack icon={faLaptopCode} title={frontend.title} technologies={frontend.technologies}/>
@@ -72,7 +72,7 @@ const StyledTechnologies = styled(Container)`
   flex-direction:  column;
 `
 
-const Header = styled.h3`
+const Header = styled.h2`
 margin-bottom: 4rem;
 `
 

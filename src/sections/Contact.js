@@ -18,7 +18,7 @@ const Contact = () => {
       <ContactStyle animate={controls} ref={ref} variants={staggerAnim} id="contact">
         <div>
           <Hide>
-            <motion.h2 variants={slideAnim.up}><span>03.</span> CONTACT</motion.h2>
+            <motion.h2 variants={slideAnim.up}><span>05.</span> CONTACT</motion.h2>
           </Hide>
         </div>
         <ContactInfo>

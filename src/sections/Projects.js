@@ -36,11 +36,17 @@ const idMedTech = ['JS', 'NextJS', 'Tailwind', 'Sanity'];
 
 const fairyLandTech = ['JS', 'NextJS', 'SCSS', 'GraphQL', 'MobX'];
 
+// Новые проекты
+const audienceCaptureWeb = ['React', 'Analytics', 'A/B Testing', 'Personalization'];
+const aiAvatarTech = ['Python', 'RAG', 'LangChain', 'WebRTC'];
+const interactiveInstallation = ['Arduino', 'TouchDesigner', 'WebSocket', 'P5.js'];
+const businessAutomation = ['Node.js', 'Puppeteer', 'PostgreSQL', 'Redis'];
+
 function Projects() {
   return (
     <StyledProjects id='projects'>
       <Header>
-        <span>02.</span> PROJECTS
+        <span>03.</span> PROJECTS
       </Header>
       <FeaturedContainer>
         <Featured

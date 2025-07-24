@@ -21,7 +21,7 @@ const HeroSection = () => {
                 <WidthContainer>
                     <Hide>
                         <motion.p variants={slideAnim.up}> 
-                        I build web-based solutions that prioritize functionality and user experience. I enjoy turning ideas into reality by creating practical and visually appealing web applications.</motion.p>
+                        Создаю специализированные сайты для захвата аудитории с продвинутыми воронками продаж, персонализацией и уникальными механиками вовлечения. Превращаю технологии в инструменты роста вашего бизнеса.</motion.p>
                     </Hide>     
                 </WidthContainer>
                 <ButtonContainer>
