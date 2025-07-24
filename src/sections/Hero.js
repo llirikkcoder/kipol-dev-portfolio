@@ -16,16 +16,16 @@ const HeroSection = () => {
                 <Description>
                     <motion.div>
                         <Hide>
-                            <motion.h2 variants={slideAnim.up}>Hi, my name is </motion.h2>
+                            <motion.h2 variants={slideAnim.up}>{t('hero.greeting')} </motion.h2>
                         </Hide>
                         <Hide>
-                            <motion.h2 variants={slideAnim.up}><span>Kirill Pavliashik</span></motion.h2>
+                            <motion.h2 variants={slideAnim.up}><span>{t('hero.name')}</span></motion.h2>
                         </Hide>
                     </motion.div>
                     <WidthContainer>
                         <Hide>
                             <motion.p variants={slideAnim.up}> 
-                            I build web-based solutions that prioritize functionality and user experience. I enjoy turning ideas into reality by creating practical and visually appealing web applications.</motion.p>
+                            {t('hero.description')}</motion.p>
                         </Hide>     
                     </WidthContainer>
                     <ButtonContainer>

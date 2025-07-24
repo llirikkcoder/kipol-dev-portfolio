@@ -83,6 +83,8 @@ const Technologies = () => {
   const creative = {
     title: t('technologies.categories.creative'),
     technologies: [
+      "VVVV",
+      "Max/MSP",
       "TouchDesigner",
       "P5.js",
       "Arduino",
