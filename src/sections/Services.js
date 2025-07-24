@@ -4,54 +4,27 @@ import styled from "styled-components";
 import { useScroll } from "../util/useScroll";
 import { motion } from "framer-motion";
 import { slideAnim } from "../animation";
-
-const servicesData = [
-  {
-    id: 1,
-    title: "Специализированные сайты для захвата аудитории",
-    description: "Воронки продаж, заманухи, персонализация, подписка на новости - все для отлова аудитории. Необыкновенные и с фишками. Оптимизированная загрузка.",
-    features: ["Продвинутые воронки продаж", "Персонализация контента", "A/B тестирование", "Высокая конверсия"],
-    icon: "🎯"
-  },
-  {
-    id: 2,
-    title: "AI-решения и автоматизация",
-    description: "Цифровые аватары на основе RAG, персональные ассистенты с психотехниками, парсинг Telegram и Avito для сбора лидов.",
-    features: ["RAG-технологии", "Чат-боты с памятью", "Автоматизация лидогенерации", "Интеграция с API"],
-    icon: "🤖"
-  },
-  {
-    id: 3,
-    title: "Креативный web и интерактив",
-    description: "Анимационные переходы, интеграция звука в веб, интерактивные инсталляции с датчиками движения. Создание уникального пользовательского опыта.",
-    features: ["WebGL/Three.js", "Звуковые инновации", "Интерактивные инсталляции", "Art-Science проекты"],
-    icon: "🎨"
-  },
-  {
-    id: 4,
-    title: "Бизнес-инструменты",
-    description: "B2B решения для музыкантов, инфографика с художественным аспектом, визуализация данных для конференций.",
-    features: ["Профессиональная инфографика", "Визуализация данных", "B2B платформы", "Корпоративные решения"],
-    icon: "💼"
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Services = () => {
   const [ref, controls] = useScroll();
+  const { t, language } = useLanguage();
+  
+  const servicesData = t('services.items');
 
   return (
     <Div>
       <StyledServices animate={controls} ref={ref} id="services" variants={slideAnim.up}>
-        <motion.h2><span>02.</span> УСЛУГИ</motion.h2>
+        <motion.h2><span>02.</span> {t('services.title')}</motion.h2>
         <ServicesGrid>
-          {servicesData.map((service) => (
-            <ServiceCard key={service.id}>
-              <ServiceIcon>{service.icon}</ServiceIcon>
+          {servicesData.map((service, index) => (
+            <ServiceCard key={index}>
+              <ServiceIcon>{['🎯', '🤖', '🎨', '💼'][index]}</ServiceIcon>
               <ServiceTitle>{service.title}</ServiceTitle>
               <ServiceDescription>{service.description}</ServiceDescription>
               <FeaturesList>
-                {service.features.map((feature, index) => (
-                  <Feature key={index}>• {feature}</Feature>
+                {service.features.map((feature, idx) => (
+                  <Feature key={idx}>• {feature}</Feature>
                 ))}
               </FeaturesList>
             </ServiceCard>

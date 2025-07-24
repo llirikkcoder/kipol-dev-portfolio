@@ -5,11 +5,13 @@ import { faMoon, faBars, faTimes, faSun } from '@fortawesome/free-solid-svg-icon
 import { staggerAnim, slideAnim } from "../animation";
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 
 const Nav = ( {toggleTheme, theme} ) => {
   const [isMenuActive, toggleMenu] = useState(false);  
   const { pathname } = useLocation();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -25,22 +27,27 @@ const Nav = ( {toggleTheme, theme} ) => {
             <>
             <NavLinks variants={staggerAnim} className={isMenuActive ? "active" : ""}>
               <NavLink variants={slideAnim.down}>
-                <a href="#about" onClick={() => toggleMenu(false)}><span>01.</span> ABOUT</a>
+                <a href="#about" onClick={() => toggleMenu(false)}><span>01.</span> {t('nav.about')}</a>
               </NavLink>
               <NavLink variants={slideAnim.down}>
-                  <a href="#services" onClick={() => toggleMenu(false)}><span>02.</span> SERVICES</a>
+                  <a href="#services" onClick={() => toggleMenu(false)}><span>02.</span> {t('nav.services')}</a>
               </NavLink>
               <NavLink variants={slideAnim.down}>
-                  <a href="#projects" onClick={() => toggleMenu(false)}><span>03.</span> PROJECTS</a>
+                  <a href="#projects" onClick={() => toggleMenu(false)}><span>03.</span> {t('nav.projects')}</a>
               </NavLink>
               <NavLink variants={slideAnim.down}>
-                  <a href="#contact" onClick={() => toggleMenu(false)}><span>04.</span> CONTACT</a>
+                  <a href="#contact" onClick={() => toggleMenu(false)}><span>04.</span> {t('nav.contact')}</a>
               </NavLink>
               <NavLink variants={slideAnim.down}>
                 <Label className="label">
                     {theme === "light" ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
                     <input onClick={toggleTheme}/>
                 </Label>
+              </NavLink>
+              <NavLink variants={slideAnim.down}>
+                <LangButton onClick={toggleLanguage}>
+                  {language === 'ru' ? 'EN' : 'RU'}
+                </LangButton>
               </NavLink>
             </NavLinks>
             { /* MOBILE BURGER*/}
@@ -145,6 +152,23 @@ const Logo = styled(motion.div)`
   }
   h1 span{
     color: var(--color-main);
+  }
+`
+
+const LangButton = styled.button`
+  background: none;
+  border: 1px solid var(--color-main);
+  color: var(--color-main);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: var(--color-main);
+    color: var(--color-bg);
   }
 `
 

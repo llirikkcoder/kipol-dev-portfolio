@@ -6,6 +6,7 @@ import Header from './components/Nav';
 import CustomCursor from './components/Cursor';
 import IndexPage from './pages/IndexPage';
 import Footer from './components/Footer';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -20,17 +21,19 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Theme theme={theme}>
-        <CustomCursor />
-        <GlobalStyle />
-        <Header toggleTheme={toggleTheme} theme={theme}/>
-        <Routes>
-          <Route path="/" element={<IndexPage />} />
-        </Routes>
-        <Footer/>
-      </Theme>
-    </div>
+    <LanguageProvider>
+      <div className="App">
+        <Theme theme={theme}>
+          <CustomCursor />
+          <GlobalStyle />
+          <Header toggleTheme={toggleTheme} theme={theme}/>
+          <Routes>
+            <Route path="/" element={<IndexPage />} />
+          </Routes>
+          <Footer/>
+        </Theme>
+      </div>
+    </LanguageProvider>
   );
 }
 

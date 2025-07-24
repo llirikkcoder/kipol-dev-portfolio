@@ -2,31 +2,33 @@ import React from 'react'
 import {Description, Social, Circle} from "../styles/styles";
 import styled from 'styled-components';
 import { motion } from "framer-motion";
+import { useLanguage } from '../context/LanguageContext';
 
 function AboutMe() {
+  const { t } = useLanguage();
 
   return (
     <StyledAboutMe>
-      <motion.p><strong>Инженер воображения. Строю мосты между технологией, телом и чувствами.</strong><br /> 
+      <motion.p><strong>{t('about.tagline')}</strong><br /> 
       <br/>
-      Соединяю технологии, искусство и здоровье в высокоценностные продукты с человеческим лицом. Создаю интеллектуальные и сенсорные системы, которые не только решают задачи, но и вдохновляют.</motion.p> <br />
-      <p className='bold'>Ключевые направления:</p>
+      {t('about.description')}</motion.p> <br />
+      <p className='bold'>{t('about.keyDirections')}</p>
         <Technologies>
           <Social>
             <Circle/>
-            <li>AI & Автоматизация</li>
+            <li>{t('about.directions.ai')}</li>
           </Social>
           <Social>
             <Circle/>
-            <li>Интерактивный Web</li>
+            <li>{t('about.directions.web')}</li>
           </Social>
           <Social>
             <Circle/>
-            <li>Art-Science проекты</li>
+            <li>{t('about.directions.artScience')}</li>
           </Social>
           <Social>
             <Circle/>
-            <li>Воронки продаж</li>
+            <li>{t('about.directions.salesFunnels')}</li>
           </Social>
         </Technologies>
     </StyledAboutMe>  

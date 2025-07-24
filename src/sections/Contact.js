@@ -8,19 +8,29 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 import { useScroll } from '../util/useScroll';
 import { faPhone } from '@fortawesome/fontawesome-free-solid';
+import { useLanguage } from '../context/LanguageContext';
 
 
 const Contact = () => { 
   const [ref, controls] = useScroll();
+  const { t } = useLanguage();
 
   return (
     <Div>
       <ContactStyle animate={controls} ref={ref} variants={staggerAnim} id="contact">
         <div>
           <Hide>
-            <motion.h2 variants={slideAnim.up}><span>05.</span> CONTACT</motion.h2>
+            <motion.h2 variants={slideAnim.up}><span>05.</span> {t('contact.title')}</motion.h2>
           </Hide>
         </div>
+        <ContactContent>
+          <Hide>
+            <motion.h3 variants={slideAnim.up}>{t('contact.text')}</motion.h3>
+          </Hide>
+          <Hide>
+            <motion.p variants={slideAnim.up}>{t('contact.description')}</motion.p>
+          </Hide>
+        </ContactContent>
         <ContactInfo>
           <Hide>
             <Info>
@@ -39,6 +49,9 @@ const Contact = () => {
             </Info>
           </Hide>
           <Hide>
+            <motion.a href="mailto:llirikk@gmail.com" variants={slideAnim.up}>
+              <motion.button variants={slideAnim.up}>{t('contact.button')}</motion.button>
+            </motion.a>
           </Hide>
         </ContactInfo>
         </ContactStyle>
@@ -58,6 +71,20 @@ justify-content: center;
   }
 }
 `
+const ContactContent = styled.div`
+margin: 2rem 0;
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+p {
+  margin-bottom: 2rem;
+  max-width: 35rem;
+  line-height: 1.6;
+}
+`
+
 const ContactInfo = styled.div`
 display: flex;
 flex-direction: column;

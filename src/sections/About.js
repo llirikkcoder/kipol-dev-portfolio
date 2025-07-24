@@ -9,15 +9,17 @@ import Namespace from "../components/Namespace";
 import { useScroll } from "../util/useScroll";
 import { motion } from "framer-motion";
 import { slideAnim } from "../animation";
+import { useLanguage } from '../context/LanguageContext';
 
 
 const About = () => {
     const [ref, controls] = useScroll();
+    const { t } = useLanguage();
     
     return(
     <Div>
         <StyledAbout animate={controls} ref={ref} id="about" variants={slideAnim.up}>
-            <motion.h2><span>01.</span> ABOUT</motion.h2>
+            <motion.h2><span>01.</span> {t('about.title')}</motion.h2>
             <AboutContainer>
                 <AboutMe/>
                 <Namespace />

@@ -4,30 +4,32 @@ import styled from "styled-components";
 import { Container, Description, Hide } from "../styles/styles";
 import { slideAnim, staggerAnim } from "../animation";
 import Wave from "../assets/img/Wave";
+import { useLanguage } from '../context/LanguageContext';
 
 
 const HeroSection = () => {
+    const { t } = useLanguage();
     return(
         <StyledHero variants={staggerAnim} initial="hidden" animate="show">
             <Description>
                 <motion.div>
                     <Hide>
-                        <motion.h2 variants={slideAnim.up}>Hi, my name is </motion.h2>
+                        <motion.h2 variants={slideAnim.up}>{t('hero.greeting')} </motion.h2>
                     </Hide>
                     <Hide>
-                        <motion.h2 variants={slideAnim.up}><span>Kirill Pavliashik</span></motion.h2>
+                        <motion.h2 variants={slideAnim.up}><span>{t('hero.name')}</span></motion.h2>
                     </Hide>
                 </motion.div>
                 <WidthContainer>
                     <Hide>
                         <motion.p variants={slideAnim.up}> 
-                        Создаю специализированные сайты для захвата аудитории с продвинутыми воронками продаж, персонализацией и уникальными механиками вовлечения. Превращаю технологии в инструменты роста вашего бизнеса.</motion.p>
+                        {t('hero.description')}</motion.p>
                     </Hide>     
                 </WidthContainer>
                 <ButtonContainer>
                     <Hide>
                         <a href="https://github.com/llirikkcoder" target="_blank" rel="noreferrer">
-                            <motion.button variants={slideAnim.up}>Github</motion.button>
+                            <motion.button variants={slideAnim.up}>{t('hero.github')}</motion.button>
                         </a>        
                     </Hide>
                 </ButtonContainer>

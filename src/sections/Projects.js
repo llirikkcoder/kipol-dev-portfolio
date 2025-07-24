@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import Featured from '../components/Featured';
 import Archive from '../components/Archive';
+import { useLanguage } from '../context/LanguageContext';
 import shvoren from '../assets/images/shvoren.jpg';
 import portfolio from '../assets/images/portfolio.jpg';
 import museum from '../assets/images/museum.jpg';
@@ -43,10 +44,11 @@ const interactiveInstallation = ['Arduino', 'TouchDesigner', 'WebSocket', 'P5.js
 const businessAutomation = ['Node.js', 'Puppeteer', 'PostgreSQL', 'Redis'];
 
 function Projects() {
+  const { t } = useLanguage();
   return (
     <StyledProjects id='projects'>
       <Header>
-        <span>03.</span> PROJECTS
+        <span>03.</span> {t('projects.title')}
       </Header>
       <FeaturedContainer>
         <Featured

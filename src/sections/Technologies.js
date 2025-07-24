@@ -8,6 +8,7 @@ import { faCode, faDatabase, faRuler } from '@fortawesome/fontawesome-free-solid
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons'
 import { slideAnim } from "../animation";
 import { useScroll } from "../util/useScroll";
+import { useLanguage } from '../context/LanguageContext';
 
 
 const backend = {
@@ -51,12 +52,13 @@ const styling = {
 
 const Technologies = () => {
   const [ref, controls] = useScroll();
+  const { t } = useLanguage();
 
 
   return (
     <Div>
       <StyledTechnologies animate={controls} ref={ref} variants={slideAnim.up}>
-        <Header><span>04.</span> TECHNOLOGIES I'VE USED</Header>
+        <Header><span>04.</span> {t('technologies.title')}</Header>
         <Grid >
           <Techstack icon={faCode} title={backend.title} technologies={backend.technologies}/>
           <Techstack icon={faLaptopCode} title={frontend.title} technologies={frontend.technologies}/>
