@@ -15,8 +15,8 @@ export const translations = {
     },
     about: {
       title: "ОБО МНЕ",
-      tagline: "Инженер воображения. Строю мосты между технологией, телом и чувствами.",
-      description: "Соединяю технологии, искусство и здоровье в высокоценностные продукты с человеческим лицом. Создаю интеллектуальные и сенсорные системы, которые не только решают задачи, но и вдохновляют.",
+      tagline: "Превращаю сложные технологии в понятные и эффективные инструменты продаж.",
+      description: "Я не просто создаю сайты, а проектирую эффективные системы, где каждая деталь работает на результат. Моя задача — превратить посетителей в клиентов, используя передовые технологии и глубокое понимание психологии потребителя.",
       keyDirections: "Ключевые направления:",
       directions: {
         ai: "AI & Автоматизация",
@@ -43,11 +43,11 @@ export const translations = {
           description: "Анимационные переходы, интеграция звука в веб, интерактивные инсталляции с датчиками движения. Создание уникального пользовательского опыта.",
           features: ["WebGL/Three.js", "Звуковые инновации", "Интерактивные инсталляции", "Art-Science проекты"]
         },
-        {
-          title: "Бизнес-инструменты",
-          description: "B2B решения для музыкантов, инфографика с художественным аспектом, визуализация данных для конференций.",
-          features: ["Профессиональная инфографика", "Визуализация данных", "B2B платформы", "Корпоративные решения"]
-        }
+        // {
+        //   title: "Бизнес-инструменты",
+        //   description: "B2B решения для музыкантов, инфографика с художественным аспектом, визуализация данных для конференций.",
+        //   features: ["Профессиональная инфографика", "Визуализация данных", "B2B платформы", "Корпоративные решения"]
+        // }
       ]
     },
     projects: {
@@ -76,7 +76,7 @@ export const translations = {
   en: {
     nav: {
       about: "ABOUT",
-      services: "SERVICES", 
+      services: "SERVICES",
       projects: "PROJECTS",
       technologies: "TECHNOLOGIES",
       contact: "CONTACT"
@@ -89,8 +89,8 @@ export const translations = {
     },
     about: {
       title: "ABOUT",
-      tagline: "Engineer of imagination. Building bridges between technology, body, and feelings.",
-      description: "I combine technology, art, and health into high-value products with a human face. Creating intelligent and sensory systems that not only solve problems but also inspire.",
+      tagline: "I transform complex technologies into clear and effective sales tools.",
+      description: "I don't just create websites, I design effective systems where every detail works for the result. My task is to turn visitors into clients using advanced technologies and a deep understanding of consumer psychology.",
       keyDirections: "Key directions:",
       directions: {
         ai: "AI & Automation",

@@ -6,6 +6,8 @@ import { slideAnim } from "../animation";
 function Namespace() {
 
     const [ref, controls] = useScroll();
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - 1985;
 
   return (
     <>
@@ -22,7 +24,7 @@ function Namespace() {
                 <span>public class</span> Kirill : Person<br />
                 &#123; <br/>
                 <Properties>
-                    <span>public int</span>  Age &#123; get; &#125; = 38;<br/>
+                    <span>public int</span>  Age &#123; get; &#125; = {age};<br/>
                     <span>public string</span> City &#123; get; &#125; = "Batumi";<br/>
                     <span>public string</span> Work &#123; get; &#125; = "Web dev";<br/>
                 </Properties>
