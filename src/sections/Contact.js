@@ -2,7 +2,6 @@ import React from 'react'
 import {motion} from "framer-motion"
 import { Container, Div, Hide} from "../styles/styles";
 import { slideAnim, staggerAnim } from "../animation"
-import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
@@ -11,108 +10,64 @@ import { faPhone } from '@fortawesome/fontawesome-free-solid';
 import { useLanguage } from '../context/LanguageContext';
 
 
-const Contact = () => { 
+const Contact = () => {
   const [ref, controls] = useScroll();
   const { t } = useLanguage();
 
   return (
     <Div>
-      <ContactStyle animate={controls} ref={ref} variants={staggerAnim} id="contact">
+      <Container
+        className="min-h-[90vh] flex-col items-start justify-center max-[650px]:p-8 max-[650px]:[&_h3]:text-[1.6rem]"
+        animate={controls}
+        ref={ref}
+        variants={staggerAnim}
+        id="contact"
+      >
         <div>
           <Hide>
             <motion.h2 variants={slideAnim.up}><span>05.</span> {t('contact.title')}</motion.h2>
           </Hide>
         </div>
-        <ContactContent>
+        <div className="my-8 [&_h3]:text-[2rem] [&_h3]:mb-4 [&_h3]:text-[var(--primary)] [&_p]:mb-8 [&_p]:max-w-[35rem] [&_p]:leading-[1.6]">
           <Hide>
             <motion.h3 variants={slideAnim.up}>{t('contact.text')}</motion.h3>
           </Hide>
           <Hide>
             <motion.p variants={slideAnim.up}>{t('contact.description')}</motion.p>
           </Hide>
-        </ContactContent>
-        <ContactInfo>
+        </div>
+        <div className="flex flex-col items-start w-full max-w-[35rem] [&_button]:mt-4">
           <Hide>
-            <Info>
-            <IconContainer variants={slideAnim.up}>
+            <motion.div className="flex items-center justify-center gap-4 mb-8">
+              <motion.div
+                className="bg-[var(--color-bg)] h-12 w-12 flex items-center justify-center rounded-full"
+                variants={slideAnim.up}
+              >
                 <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
-            </IconContainer>
-            <motion.p variants={slideAnim.up}>llirikk@gmail.com</motion.p>
-            </Info>
+              </motion.div>
+              <motion.p variants={slideAnim.up}>llirikk@gmail.com</motion.p>
+            </motion.div>
           </Hide>
           <Hide>
-            <Info>
-              <IconContainer variants={slideAnim.up}>
-                  <FontAwesomeIcon icon={faPhone  }></FontAwesomeIcon>
-              </IconContainer>
+            <motion.div className="flex items-center justify-center gap-4 mb-8">
+              <motion.div
+                className="bg-[var(--color-bg)] h-12 w-12 flex items-center justify-center rounded-full"
+                variants={slideAnim.up}
+              >
+                <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>
+              </motion.div>
               <motion.p variants={slideAnim.up}>+995 591006048</motion.p>
-            </Info>
+            </motion.div>
           </Hide>
           <Hide>
             <motion.a href="mailto:llirikk@gmail.com" variants={slideAnim.up}>
               <motion.button variants={slideAnim.up}>{t('contact.button')}</motion.button>
             </motion.a>
           </Hide>
-        </ContactInfo>
-        </ContactStyle>
+        </div>
+      </Container>
     </Div>
   )
 }
-
-const ContactStyle = styled(Container)`
-min-height: 90vh;
-flex-direction: column;
-align-items: flex-start;
-justify-content: center;
-@media (max-width: 650px){
-  padding: 2rem;
-  h3{
-    font-size: 1.6rem;
-  }
-}
-`
-const ContactContent = styled.div`
-margin: 2rem 0;
-h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
-}
-p {
-  margin-bottom: 2rem;
-  max-width: 35rem;
-  line-height: 1.6;
-}
-`
-
-const ContactInfo = styled.div`
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-width: 100%;
-max-width: 35rem;
-button{
-  margin-top: 1rem;
-}
-`
-const IconContainer = styled(motion.div)`
-background: var(--color-bg);
-height: 3rem;
-width: 3rem;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-`
-
-const Info = styled(motion.div)`
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 1rem;
-margin-bottom: 2rem;
-`
-
-
 
 export default Contact;

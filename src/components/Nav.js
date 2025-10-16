@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faBars, faTimes, faSun } from '@fortawesome/free-solid-svg-icons';
 import { staggerAnim, slideAnim } from "../animation";
@@ -9,7 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 
 const Nav = ( {toggleTheme, theme} ) => {
-  const [isMenuActive, toggleMenu] = useState(false);  
+  const [isMenuActive, toggleMenu] = useState(false);
   const { pathname } = useLocation();
   const { language, toggleLanguage, t } = useLanguage();
 
@@ -18,158 +17,95 @@ const Nav = ( {toggleTheme, theme} ) => {
   }
 
   return (
-    <Container>
-      <StyledNav variants={slideAnim.down} initial="hidden" animate="show" >
-          <Logo onClick={scrollTop}>
-            <Link to="/"><h1> &lt;<span>Kirill Pavliashik </span>/&gt;</h1></Link>
-          </Logo>
+    <motion.div
+      className="z-10 fixed left-0 right-0"
+      style={{ background: 'linear-gradient(to bottom, var(--color-bg) 0%, rgba(0,0,0,0) 100%)' }}
+    >
+      <motion.nav
+        variants={slideAnim.down}
+        initial="hidden"
+        animate="show"
+        className="max-w-[1080px] mx-auto px-8 py-4 flex justify-between"
+      >
+          <motion.div
+            onClick={scrollTop}
+            className="z-[2] flex items-center"
+          >
+            <Link to="/">
+              <h1 className="text-xl font-light">
+                &lt;<span className="text-[var(--color-main)]">Kirill Pavliashik </span>/&gt;
+              </h1>
+            </Link>
+          </motion.div>
+
           { pathname === "/" && (
             <>
-            <NavLinks variants={staggerAnim} className={isMenuActive ? "active" : ""}>
-              <NavLink variants={slideAnim.down}>
-                <a href="#about" onClick={() => toggleMenu(false)}><span>01.</span> {t('nav.about')}</a>
-              </NavLink>
-              <NavLink variants={slideAnim.down}>
-                  <a href="#services" onClick={() => toggleMenu(false)}><span>02.</span> {t('nav.services')}</a>
-              </NavLink>
-              <NavLink variants={slideAnim.down}>
-                  <a href="#projects" onClick={() => toggleMenu(false)}><span>03.</span> {t('nav.projects')}</a>
-              </NavLink>
-              <NavLink variants={slideAnim.down}>
-                  <a href="#contact" onClick={() => toggleMenu(false)}><span>04.</span> {t('nav.contact')}</a>
-              </NavLink>
-              <NavLink variants={slideAnim.down}>
-                <Label className="label">
+            <motion.ul
+              variants={staggerAnim}
+              className={`flex gap-8 backdrop-blur-[10px] border-2 border-[var(--color-border)] rounded-[10px] px-8 py-4 max-[700px]:flex-col max-[700px]:items-center max-[700px]:justify-center max-[700px]:fixed max-[700px]:top-0 max-[700px]:left-0 max-[700px]:w-full max-[700px]:h-full max-[700px]:transition-transform max-[700px]:duration-300 max-[700px]:ease-in-out ${isMenuActive ? 'max-[700px]:translate-x-0' : 'max-[700px]:translate-x-full'}`}
+              style={{ backgroundColor: 'var(--color-nav)' }}
+            >
+              <motion.li
+                variants={slideAnim.down}
+                className="text-[0.8rem] max-[700px]:text-[1.6rem]"
+              >
+                <a href="#about" onClick={() => toggleMenu(false)}>
+                  <span className="text-[var(--color-main)] font-[var(--font-mono)] text-[0.7rem] max-[700px]:text-[1.2rem]">01.</span> {t('nav.about')}
+                </a>
+              </motion.li>
+              <motion.li
+                variants={slideAnim.down}
+                className="text-[0.8rem] max-[700px]:text-[1.6rem]"
+              >
+                <a href="#services" onClick={() => toggleMenu(false)}>
+                  <span className="text-[var(--color-main)] font-[var(--font-mono)] text-[0.7rem] max-[700px]:text-[1.2rem]">02.</span> {t('nav.services')}
+                </a>
+              </motion.li>
+              <motion.li
+                variants={slideAnim.down}
+                className="text-[0.8rem] max-[700px]:text-[1.6rem]"
+              >
+                <a href="#projects" onClick={() => toggleMenu(false)}>
+                  <span className="text-[var(--color-main)] font-[var(--font-mono)] text-[0.7rem] max-[700px]:text-[1.2rem]">03.</span> {t('nav.projects')}
+                </a>
+              </motion.li>
+              <motion.li
+                variants={slideAnim.down}
+                className="text-[0.8rem] max-[700px]:text-[1.6rem]"
+              >
+                <a href="#contact" onClick={() => toggleMenu(false)}>
+                  <span className="text-[var(--color-main)] font-[var(--font-mono)] text-[0.7rem] max-[700px]:text-[1.2rem]">04.</span> {t('nav.contact')}
+                </a>
+              </motion.li>
+              <motion.li variants={slideAnim.down}>
+                <label className="cursor-pointer">
                     {theme === "light" ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
-                    <input onClick={toggleTheme}/>
-                </Label>
-              </NavLink>
-              <NavLink variants={slideAnim.down}>
-                <LangButton onClick={toggleLanguage}>
+                    <input onClick={toggleTheme} className="opacity-0 m-0 p-0 w-0"/>
+                </label>
+              </motion.li>
+              <motion.li variants={slideAnim.down}>
+                <button
+                  onClick={toggleLanguage}
+                  className="bg-transparent border border-[var(--color-main)] text-[var(--color-main)] px-2.5 py-1.5 rounded text-[0.8rem] cursor-pointer font-[var(--font-mono)] transition-all duration-300 hover:bg-[var(--color-main)] hover:text-[var(--color-bg)]"
+                >
                   {language === 'ru' ? 'EN' : 'RU'}
-                </LangButton>
-              </NavLink>
-            </NavLinks>
-            { /* MOBILE BURGER*/}
-            <Burger onClick={() => toggleMenu(!isMenuActive)}>
+                </button>
+              </motion.li>
+            </motion.ul>
+
+            {/* MOBILE BURGER */}
+            <motion.div
+              onClick={() => toggleMenu(!isMenuActive)}
+              className="hidden text-[var(--color-main)] text-xl max-[700px]:flex max-[700px]:items-center max-[700px]:h-10 max-[700px]:w-10 max-[700px]:rounded-full max-[700px]:z-[2] max-[700px]:justify-center"
+              style={{ background: 'var(--color-second)' }}
+            >
               <FontAwesomeIcon icon={isMenuActive ? faTimes : faBars}></FontAwesomeIcon>
-            </Burger>
+            </motion.div>
             </>
           )}
-      </StyledNav>
-    </Container>
-  ) 
+      </motion.nav>
+    </motion.div>
+  )
 }
-const Container = styled(motion.div)`
-  z-index: 1;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to bottom, var(--color-bg) 0%, rgba(0,0,0,0) 100%);
-`
-
-const StyledNav = styled(motion.nav)`
-  max-width: 1080px;
-  margin: auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-`
-
-const NavLinks = styled(motion.ul)`
-  display: flex;
-  gap: 2rem;
-  backdrop-filter: blur(10px);
-  background-color: var(--color-nav);
-  border: 2px solid var(--color-border);
-  border-radius: 10px;
-  padding: 1rem 2rem;
-  @media (max-width: 700px){
-    transform: translateX(100%) !important;
-    transition: 0.3s ease-in-out;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  &.active{
-    transform: translateX(0%) !important;
-  }
-`
-
-const NavLink = styled(motion.li)`
-  font-size: 0.8rem;
-  a span {
-    color: var(--color-main);
-    font-family:  var(--font-mono);
-    font-size: 0.7rem;
-  }
-  @media (max-width: 700px){
-    font-size: 1.6rem;
-    a span {
-    font-size: 1.2rem;
-  }
-  }
-`
-
-const Burger = styled(motion.div)`
-  display: none;
-  color: var(--color-main);
-  font-size: 1.2rem;
-  @media (max-width: 700px){
-    display: flex;
-    align-items: center;
-    background: var(--color-second);
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    z-index: 2;
-    justify-content: center;
-  }
-`
-
-const Label = styled.label`
-  cursor: pointer;
-  input {
-    opacity: 0;
-    margin: 0;
-    padding: 0;
-    width:  0;
-  }
-`
-
-const Logo = styled(motion.div)`
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  h1{
-    font-size: 1.2rem;
-    font-weight: lighter;
-  }
-  h1 span{
-    color: var(--color-main);
-  }
-`
-
-const LangButton = styled.button`
-  background: none;
-  border: 1px solid var(--color-main);
-  color: var(--color-main);
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  font-family: var(--font-mono);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: var(--color-main);
-    color: var(--color-bg);
-  }
-`
 
 export default Nav;

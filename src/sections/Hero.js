@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styled from "styled-components";
 import { Container, Description, Hide } from "../styles/styles";
 import { slideAnim, staggerAnim } from "../animation";
 import Wave from "../assets/img/Wave";
@@ -11,8 +10,13 @@ import avatar from "../assets/images/avatar.jpg";
 const HeroSection = () => {
     const { t } = useLanguage();
     return(
-        <StyledHero variants={staggerAnim} initial="hidden" animate="show">
-            <HeroContent>
+        <Container
+            className="min-h-screen [&_p]:pb-6 [&_h2]:text-xl [&_h2]:font-light [&_h2]:mb-0 [&_h2_span]:font-['Poppins',sans-serif] [&_h2_span]:text-6xl [&_h2_span]:font-extrabold max-[850px]:[&_h2_span]:text-[3.5rem]"
+            variants={staggerAnim}
+            initial="hidden"
+            animate="show"
+        >
+            <div className="flex items-center justify-between w-full gap-16 max-[1024px]:flex-col max-[1024px]:gap-8">
                 <Description>
                     <motion.div>
                         <Hide>
@@ -22,104 +26,36 @@ const HeroSection = () => {
                             <motion.h2 variants={slideAnim.up}><span>{t('hero.name')}</span></motion.h2>
                         </Hide>
                     </motion.div>
-                    <WidthContainer>
+                    <div className="min-[850px]:max-w-[600px]">
                         <Hide>
-                            <motion.p variants={slideAnim.up}> 
+                            <motion.p variants={slideAnim.up}>
                             {t('hero.description')}</motion.p>
-                        </Hide>     
-                    </WidthContainer>
-                    <ButtonContainer>
+                        </Hide>
+                    </div>
+                    <div className="flex">
                         <Hide>
                             <a href="https://github.com/llirikkcoder" target="_blank" rel="noreferrer">
                                 <motion.button variants={slideAnim.up}>Github</motion.button>
-                            </a>        
+                            </a>
                         </Hide>
-                    </ButtonContainer>
+                    </div>
                 </Description>
-                <AvatarContainer>
-                    <Avatar 
-                        src={avatar} 
+                <div className="flex-shrink-0 overflow-visible p-5">
+                    <motion.img
+                        src={avatar}
                         alt="Kirill Pavliashik"
+                        className="w-[300px] h-[300px] rounded-full object-cover border-4 border-[var(--color-secondary)] shadow-[0_20px_40px_rgba(0,0,0,0.3)] bg-[var(--color-bg)] block max-[768px]:w-[200px] max-[768px]:h-[200px] max-[480px]:w-[150px] max-[480px]:h-[150px]"
                         variants={slideAnim.up}
                         initial="hidden"
                         animate="show"
                         whileHover={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 300 }}
                     />
-                </AvatarContainer>
-            </HeroContent>
+                </div>
+            </div>
             <Wave />
-        </StyledHero>
+        </Container>
     )
 }
-
-const StyledHero = styled(Container)`
-min-height: 100vh;
-p{
-    padding: 0 0 1.5rem;
-}
-  h2{
-    font-size: 1.2rem;
-    font-weight: lighter;
-    margin-bottom: 0rem;
-    span {
-        font-family: 'Poppins', sans-serif;
-        font-size: 4rem;
-        font-weight: 800;
-        @media (max-width: 850px) {
-            font-size: 3.5rem;
-        }
-    }
-  }
-`
-
-const HeroContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 4rem;
-  
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    gap: 2rem;
-  }
-`
-
-const AvatarContainer = styled.div`
-  flex-shrink: 0;
-  overflow: visible;
-  padding: 20px;
-`
-
-const Avatar = styled(motion.img)`
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--color-secondary);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  background-color: var(--color-bg);
-  display: block;
-  
-  @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
-  }
-  
-  @media (max-width: 480px) {
-    width: 150px;
-    height: 150px;
-  }
-`
-
-const ButtonContainer = styled.div`
-display: flex;
-`
-const WidthContainer = styled.div`
-  @media (min-width: 850px) {
-    max-width: 600px;
-  }
-`
 
 export default HeroSection;

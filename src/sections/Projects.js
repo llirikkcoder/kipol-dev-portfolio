@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import Featured from '../components/Featured';
@@ -46,11 +45,11 @@ const businessAutomation = ['Node.js', 'Puppeteer', 'PostgreSQL', 'Redis'];
 function Projects() {
   const { t } = useLanguage();
   return (
-    <StyledProjects id='projects'>
-      <Header>
+    <motion.div className="max-w-[1080px] px-8 py-20 mx-auto flex items-center flex-col" id='projects'>
+      <motion.h2 className="pb-8 inline-block">
         <span>03.</span> {t('projects.title')}
-      </Header>
-      <FeaturedContainer>
+      </motion.h2>
+      <motion.div>
         <Featured
           image={amberbitter_lab}
           title='Laboratory of amber bitters with blog'
@@ -128,26 +127,10 @@ function Projects() {
           link='https://github.com/llirikkcoder/html_dao'
           technologies={daoTech}
         />
-      </FeaturedContainer>
+      </motion.div>
       <Archive />
-    </StyledProjects>
+    </motion.div>
   );
 }
-
-const StyledProjects = styled(motion.div)`
-  max-width: 1080px;
-  padding: 5rem 2rem;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Header = styled(motion.h2)`
-  padding-bottom: 2rem;
-  display: inline-block;
-`;
-
-const FeaturedContainer = styled(motion.div)``;
 
 export default Projects;

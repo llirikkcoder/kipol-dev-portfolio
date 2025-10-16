@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import styled from 'styled-components'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useScroll } from "../util/useScroll";
@@ -10,46 +9,23 @@ function Techstack({title, technologies, icon}) {
     const [ref, controls] = useScroll();
 
   return (
-  <StackContainer animate={controls} ref={ref} variants={slideAnim.up}>
-      <IconContainer>
+  <motion.div
+    className="flex items-center flex-col bg-[var(--color-bg)] py-8 rounded-[20px] [&_h4]:text-[0.8rem] [&_h4]:mt-4 [&_li]:text-[0.8rem] [&_li]:mt-2"
+    animate={controls}
+    ref={ref}
+    variants={slideAnim.up}
+  >
+      <motion.div className="bg-[var(--color-second)] text-[var(--color-main)] p-4 rounded-full h-8 w-8 flex items-center justify-center">
           <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
-      </IconContainer>
+      </motion.div>
       <ul>
           <li><h4>{title}</h4></li>
           {technologies?.map((technology) => (
               <li key={technology}>{technology}</li>
           ))}
       </ul>
- </StackContainer>
+ </motion.div>
   )
 }
-
-const StackContainer = styled(motion.div)`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: var(--color-bg);
-    padding: 2rem 0;
-    border-radius: 20px;
-    h4{
-        font-size: 0.8rem;
-        margin-top: 1rem;
-    }
-    li{
-        font-size: 0.8rem;
-        margin-top: 0.5rem;
-    }
-`
-const IconContainer = styled(motion.div)`
-    background: var(--color-second);
-    color: var(--color-main);
-    padding: 1rem;
-    border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
 
 export default Techstack

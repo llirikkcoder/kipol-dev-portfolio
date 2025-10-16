@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -16,25 +15,11 @@ const CustomCursor = () => {
   }, []);
 
   return (
-    <Cursor
+    <div
+      className="max-[850px]:hidden fixed w-[30px] h-[30px] rounded-full border-2 border-[var(--color-main)] pointer-events-none z-[9999] transition-transform duration-200 ease-out -translate-x-1/2 -translate-y-1/2"
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
     />
   );
 };
-
-const Cursor = styled.div`
-  @media (min-width: 850px) {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid ${props => props.theme.mainColor};
-  background-color: none;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.2s ease-out;
-  transform: translate(-50%, -50%); 
-  }
-`;
 
 export default CustomCursor;

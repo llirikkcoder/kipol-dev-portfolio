@@ -1,10 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Technologies } from '../styles/styles'
 import { motion } from "framer-motion"
 import { useScroll } from '../util/useScroll';
 import { slideAnim } from "../animation"
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/fontawesome-free-solid'
@@ -13,93 +11,37 @@ function Featured({title, image, text, link, technologies}) {
   const [ref, controls] = useScroll();
 
   return (
-      <FeaturedProject animate={controls} ref={ref} variants={slideAnim.up}>
-         <Image>
-             <Img src={image} alt="project_video" />
-         </Image>
-         <About>
-           <Header>
+      <motion.div
+        className="mb-16 min-[850px]:flex max-[850px]:[&_h3]:px-4"
+        animate={controls}
+        ref={ref}
+        variants={slideAnim.up}
+      >
+         <div className="relative flex-1 flex items-center">
+             <img src={image} alt="project_video" className="w-full h-full object-cover overflow-hidden" />
+         </div>
+         <div className="flex-1">
+           <div className="p-4 px-8 [&_p]:font-bold [&_p]:text-[0.7rem] [&_p]:text-[var(--color-main)]">
              {/* <p>Featured</p> */}
              <a href={link} target="_blank" rel="noreferrer"><h3>{title}</h3></a>
-           </Header>
-           <AboutText>
+           </div>
+           <div className="p-8 bg-[var(--color-bg-2)]">
              {/* <p>{text}</p> */}
             <a href={text} target="_blank" rel="noreferrer"><h3>See demo</h3></a>
-           </AboutText>
-           <More>
+           </div>
+           <div className="p-4 flex gap-3 items-center">
              <Technologies>
              {technologies?.map((technology) => (
-               <li key={technology}>{technology}</li>
+               <li className="bg-[var(--color-second)] text-[var(--color-main)] px-2 py-1 text-[0.7rem] rounded-[20px]" key={technology}>{technology}</li>
              ))}
              </Technologies>
-             <CodeIcon href={link} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faCode}></FontAwesomeIcon></CodeIcon>
-           </More>
-         </About>
-      </FeaturedProject>
+             <a href={link} target="_blank" rel="noreferrer" className="max-[850px]:translate-x-[5px]">
+               <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>
+             </a>
+           </div>
+         </div>
+      </motion.div>
   )
 }
-
-const FeaturedProject = styled(motion.div)`
-  margin-bottom: 4rem;
-  
-  @media (min-width: 850px) {
-    display: flex;
-  }
-  @media (max-width: 850px) {
-    h3{
-      padding: 0 1rem;
-    }
-  }
-`;
-
-const Header = styled.div`
-padding: 1rem 2rem;
-p{
-  font-weight: bold;
-  font-size: 0.7rem;
-  color: var(--color-main)
-}
-`
-const AboutText = styled.div`
-  padding: 2rem;
-  background: var(--color-bg-2);
-`
-const More = styled.div`
-padding: 1rem;
-display: flex;
-gap: 0.75rem;
-align-items: center;
-`
-
-const About = styled.div`
-  flex: 1;
-`
-
-const Image = styled.div`
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-`
-
-const Video = styled.video`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-`
-
-const Img = styled.img`
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  overflow: hidden;
-`
-
-const CodeIcon = styled.a`
-  @media (max-width: 850px) {
-    transform: translate(5px, 0);
-  }
-`
 
 export default Featured;

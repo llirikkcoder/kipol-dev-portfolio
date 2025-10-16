@@ -1,28 +1,19 @@
 import React from 'react'
 import { Div, Container } from "../styles/styles"
-import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 const Footer = () => {
   return (
     <Div>
-      <StyledFooter>
-        <p>Built with React, Framer Motion and Styled Components. Coded in VS Code.</p>
+      <Container className="flex-col p-8 gap-2 [&_p]:text-[0.7rem]">
+        <p>Built with React, Framer Motion and Tailwind CSS. Coded in VS Code.</p>
         <a href="https://github.com/llirikkcoder" target='_blank' rel="noreferrer">
-          <FontAwesomeIcon icon={faGithub} /> 
+          <FontAwesomeIcon icon={faGithub} />
         </a>
-      </StyledFooter>
+      </Container>
     </Div>
   )
 }
 
-const StyledFooter = styled(Container)`
-  flex-direction: column;
-  padding: 2rem;
-  gap: 0.5rem;
-  p {
-    font-size: 0.7rem;
-  }
-`
 export default Footer

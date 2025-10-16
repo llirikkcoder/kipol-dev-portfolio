@@ -1,61 +1,47 @@
-import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const Div = styled(motion.div)`
-background: ${props => props.theme.secondBackground};
-`
+export const Div = ({ children, ...props }) => (
+  <motion.div style={{ background: 'var(--color-bg-2)' }} {...props}>
+    {children}
+  </motion.div>
+);
 
+export const Container = ({ children, className = "", ...props }) => (
+  <motion.div
+    className={`flex flex-wrap items-center max-w-[1080px] mx-auto px-8 py-20 max-[850px]:justify-center ${className}`}
+    {...props}
+  >
+    {children}
+  </motion.div>
+);
 
-export const Container = styled(motion.div)`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  ${'' /* justify-content: center; */}
-  max-width: 1080px;
-  margin: auto;
-  padding: 5rem 2rem;
-  @media (max-width: 850px) {
-    justify-content: center; 
-  }
-`;
+export const Description = ({ children, ...props }) => (
+  <motion.div className="flex flex-col items-start justify-start" {...props}>
+    {children}
+  </motion.div>
+);
 
-export const Description = styled(motion.div)`
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-justify-content: start;  
-`;
+export const Hide = ({ children, ...props }) => (
+  <div className="overflow-hidden" {...props}>
+    {children}
+  </div>
+);
 
-export const Hide = styled.div`
-  overflow: hidden;
-`;
+export const Circle = ({ ...props }) => (
+  <div className="rounded-full w-2 h-2 mr-4 bg-[var(--color-main)]" {...props} />
+);
 
-export const Circle = styled.div`
-border-radius: 50%;
-width: 0.5rem;
-height: 0.5rem;
-margin-right: 1rem;
-background: var(--color-main);
-`
+export const Social = ({ children, ...props }) => (
+  <motion.div className="flex items-center" {...props}>
+    {children}
+  </motion.div>
+);
 
-export const Social = styled(motion.div)`
-display: flex;
-align-items: center;
-`
-
-export const Technologies = styled.ul`
-display: flex;
-justify-content: flex-start;
-gap: 0.5rem;
-li{
-  background: var(--color-second);
-  color: var(--color-main);
-  padding: 0.3rem 0.5rem;
-  font-size: 0.7rem;
-  border-radius: 20px;
-}
-@media (max-width: 850px) {
-  padding: 0 1rem;
-  transform: translate(10px, 0);
-}
-` 
+export const Technologies = ({ children, className = "", ...props }) => (
+  <ul
+    className={`flex justify-start gap-2 max-[850px]:px-4 max-[850px]:translate-x-[10px] ${className}`}
+    {...props}
+  >
+    {children}
+  </ul>
+); 

@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components';
 import { Container, Div } from "../styles/styles";
 import Techstack from "../components/Techstack";
 import { motion } from 'framer-motion';
@@ -106,9 +105,9 @@ const Technologies = () => {
 
   return (
     <Div>
-      <StyledTechnologies animate={controls} ref={ref} variants={slideAnim.up}>
-        <Header><span>04.</span> {t('technologies.title')}</Header>
-        <Grid >
+      <Container className="flex-col" animate={controls} ref={ref} variants={slideAnim.up}>
+        <h2 className="mb-16"><span>04.</span> {t('technologies.title')}</h2>
+        <motion.div className="w-full grid gap-8 grid-cols-[repeat(auto-fit,minmax(250px,1fr))] text-center">
           <Techstack icon={faCode} title={backend.title} technologies={backend.technologies}/>
           <Techstack icon={faLaptopCode} title={frontend.title} technologies={frontend.technologies}/>
           <Techstack icon={faDatabase} title={database.title} technologies={database.technologies}/>
@@ -117,26 +116,10 @@ const Technologies = () => {
           <Techstack icon={faChartLine} title={analytics.title} technologies={analytics.technologies}/>
           <Techstack icon={faPalette} title={creative.title} technologies={creative.technologies}/>
           <Techstack icon={faMicrochip} title={tools.title} technologies={tools.technologies}/>
-        </Grid>
-      </StyledTechnologies>
+        </motion.div>
+      </Container>
     </Div>
   )
 }
-
-const StyledTechnologies = styled(Container)`
-  flex-direction:  column;
-`
-
-const Header = styled.h2`
-margin-bottom: 4rem;
-`
-
-const Grid = styled(motion.div)`
-  width: 100%;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  text-align: center;
-`
 
 export default Technologies
